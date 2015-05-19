@@ -1,0 +1,21 @@
+{
+    "name": "littlethings/php-developer-test",
+    "description": "",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Andrew Weir",
+            "email": "andrew@littlethings.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "LittleThings\\": "src"
+        }
+    },
+    "require": {},
+    "require-dev": {
+        "phpunit/phpunit": "4.6.*"
+    }
+}
