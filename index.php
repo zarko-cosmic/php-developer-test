@@ -5,7 +5,8 @@ require 'bootstrap.php';
 use LittleThings\JsonPostRepository;
 use LittleThings\Post;
 
-$postsJson = config()['posts_json'];
+$postsJson = STORAGE_PATH . '/posts-copy.json';
+copy(config()['posts_json'], $postsJson);
 
 $repo = new JsonPostRepository($postsJson);
 
