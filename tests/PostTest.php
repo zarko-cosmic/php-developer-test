@@ -19,5 +19,12 @@ class PostTest extends PHPUnit_Framework_TestCase
     function it_serializes_properties_when_json_encoded()
     {
         $this->assertJson(json_encode($this->post));
+
+        $keys = array_keys($this->post->jsonSerialize());        
+        $post = json_decode(json_encode($this->post), true);
+
+        array_map(function ($key) use ($post) {
+            $this->assertArrayHasKey($key, $post);
+        }, $keys);
     }
 }

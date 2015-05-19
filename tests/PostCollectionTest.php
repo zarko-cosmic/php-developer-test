@@ -37,5 +37,17 @@ class PostCollectionTest extends PHPUnit_Framework_TestCase
         $posts = new PostCollection($this->posts);
 
         $this->assertJson(json_encode($posts));
+
+        // Test first post to ensure keys exist
+        foreach ($posts as $post) {
+            $keys = array_keys($post->jsonSerialize());        
+            $post = json_decode(json_encode($post), true);
+
+            array_map(function ($key) use ($post) {
+                $this->assertArrayHasKey($key, $post);
+            }, $keys);
+
+            break;
+        }
     }
 }
