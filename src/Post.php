@@ -61,4 +61,16 @@ class Post implements JsonSerializable
     {
         return $this->$name;
     }
+
+   public function jsonSerialize() {
+      $post =  [
+         'id' => $this->id,
+         'date' => $this->date,
+         'authorId' => $this->authorId,
+         'title' => $this->title,
+         'slug' => $this->slug
+      ];
+
+      return $post;
+   }
 }

@@ -2,6 +2,7 @@
 
 namespace LittleThings;
 
+use ArrayIterator;
 use IteratorAggregate;
 use JsonSerializable;
 
@@ -34,4 +35,12 @@ class PostCollection implements IteratorAggregate, JsonSerializable
     {
         return count($this->posts);
     }
+
+    public function getIterator() {
+       return new ArrayIterator( $this->posts );
+    }
+
+   public function jsonSerialize() {
+
+   }
 }
